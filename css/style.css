@@ -401,6 +401,64 @@ blockquote {
 .token-list { color: var(--text-muted); font-size: 0.92rem; line-height: 1.8; }
 .caption { color: var(--text-faint); font-size: 0.85rem; margin-top: 12px; }
 
+/* ---------- Hobbies marquee ---------- */
+.hobbies-section { padding-bottom: 56px; }
+
+.marquee-wrap {
+  margin: 40px 0 20px;
+  transform: rotate(-2deg) scale(1.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.marquee-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee-left 38s linear infinite;
+}
+
+.marquee-row-reverse .marquee-track {
+  animation-name: marquee-right;
+  animation-duration: 32s;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+.marquee-track img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+.photo-credit {
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  margin-top: 8px;
+}
+
 /* ---------- Contact ---------- */
 .contact-section { text-align: center; }
 .contact-lead { color: var(--text-muted); max-width: 50ch; margin: 0 auto 28px; }
