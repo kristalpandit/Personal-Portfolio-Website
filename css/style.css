@@ -481,12 +481,25 @@ ul { margin: 0; padding: 0; }
 /* ---------- Hobbies marquee ---------- */
 .hobbies-section { padding-bottom: 56px; }
 
-.marquee-wrap {
+.marquee-viewport {
   margin: 40px 0 20px;
-  transform: rotate(-2deg) scale(1.04);
+  height: 420px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-inner {
+  transform: rotate(-4deg);
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 140%;
+  margin-left: -20%;
 }
 
 .marquee-row {
@@ -498,12 +511,12 @@ ul { margin: 0; padding: 0; }
   display: flex;
   gap: 16px;
   width: max-content;
-  animation: marquee-left 38s linear infinite;
+  animation: marquee-left 100s linear infinite;
 }
 
 .marquee-row-reverse .marquee-track {
   animation-name: marquee-right;
-  animation-duration: 32s;
+  animation-duration: 85s;
 }
 
 .marquee-track:hover { animation-play-state: paused; }
@@ -528,12 +541,6 @@ ul { margin: 0; padding: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
-}
-
-.photo-credit {
-  color: var(--text-faint);
-  font-size: 0.78rem;
-  margin-top: 8px;
 }
 
 /* ---------- Contact ---------- */
@@ -604,6 +611,9 @@ ul { margin: 0; padding: 0; }
   .nav-links.open { display: flex; }
 
   .bar-row { grid-template-columns: 90px 1fr 48px; }
+
+  .marquee-viewport { height: 260px; }
+  .marquee-track img { width: 140px; height: 105px; }
 }
 
 @media (max-width: 480px) {
